@@ -26,7 +26,6 @@ import rx.libgdx.events.lifecycle.PauseEvent;
 import rx.libgdx.events.lifecycle.ResumeEvent;
 import rx.subscriptions.Subscriptions;
 
-import static rx.GdxObservable.filtered;
 import static rx.Observable.create;
 
 public enum GdxLifecycleEventSource {
@@ -84,7 +83,7 @@ public enum GdxLifecycleEventSource {
      * @return An observable emitting "Touch Up" events.
      */
     public static Observable<PauseEvent> pause(Observable<? extends LifecycleEvent> source) {
-        return filtered(source, PauseEvent.class);
+        return source.ofType(PauseEvent.class);
     }
 
     /**
@@ -94,7 +93,7 @@ public enum GdxLifecycleEventSource {
      * @return An observable emitting "Touch Up" events.
      */
     public static Observable<ResumeEvent> resume(Observable<? extends LifecycleEvent> source) {
-        return filtered(source, ResumeEvent.class);
+        return source.ofType(ResumeEvent.class);
     }
 
     /**
@@ -104,7 +103,7 @@ public enum GdxLifecycleEventSource {
      * @return An observable emitting "Touch Up" events.
      */
     public static Observable<DisposeEvent> dispose(Observable<? extends LifecycleEvent> source) {
-        return filtered(source, DisposeEvent.class);
+        return source.ofType(DisposeEvent.class);
     }
 
 }

@@ -24,7 +24,6 @@ import rx.functions.Action0;
 import rx.libgdx.events.input.*;
 import rx.subscriptions.Subscriptions;
 
-import static rx.GdxObservable.filtered;
 import static rx.Observable.create;
 
 public enum GdxInputEventSource {
@@ -151,7 +150,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Touch Up" events.
      */
     public static Observable<TouchUpEvent> touchUp(Observable<? extends InputEvent> source) {
-        return filtered(source, TouchUpEvent.class);
+        return source.ofType(TouchUpEvent.class);
     }
 
     /**
@@ -161,7 +160,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Touch Down" events.
      */
     public static Observable<TouchDownEvent> touchDown(Observable<? extends InputEvent> source) {
-        return filtered(source, TouchDownEvent.class);
+        return source.ofType(TouchDownEvent.class);
     }
 
     /**
@@ -171,7 +170,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Touch Dragged" events.
      */
     public static Observable<TouchDraggedEvent> touchDragged(Observable<? extends InputEvent> source) {
-        return filtered(source, TouchDraggedEvent.class);
+        return source.ofType(TouchDraggedEvent.class);
     }
 
     /**
@@ -181,7 +180,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Mouse Moved" events.
      */
     public static Observable<MouseMovedEvent> mouseMoved(Observable<? extends InputEvent> source) {
-        return filtered(source, MouseMovedEvent.class);
+        return source.ofType(MouseMovedEvent.class);
     }
 
     /**
@@ -191,7 +190,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Scrolled" events.
      */
     public static Observable<ScrolledEvent> scrolled(Observable<? extends InputEvent> source) {
-        return filtered(source, ScrolledEvent.class);
+        return source.ofType(ScrolledEvent.class);
     }
 
     /**
@@ -201,7 +200,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Key Typed" events.
      */
     public static Observable<KeyTypedEvent> keyTyped(Observable<? extends InputEvent> source) {
-        return filtered(source, KeyTypedEvent.class);
+        return source.ofType(KeyTypedEvent.class);
     }
 
     /**
@@ -211,7 +210,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Key Up" events.
      */
     public static Observable<KeyUpEvent> keyUp(Observable<? extends InputEvent> source) {
-        return filtered(source, KeyUpEvent.class);
+        return source.ofType(KeyUpEvent.class);
     }
 
     /**
@@ -221,7 +220,7 @@ public enum GdxInputEventSource {
      * @return An observable emitting "Key Down" events.
      */
     public static Observable<KeyDownEvent> keyDown(Observable<? extends InputEvent> source) {
-        return filtered(source, KeyDownEvent.class);
+        return source.ofType(KeyDownEvent.class);
     }
 
 }

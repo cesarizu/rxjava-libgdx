@@ -25,7 +25,6 @@ import rx.subscriptions.Subscriptions;
 import java.util.LinkedList;
 import java.util.List;
 
-import static rx.GdxObservable.filtered;
 import static rx.Observable.create;
 
 public enum GdxBox2DEventSource {
@@ -101,7 +100,7 @@ public enum GdxBox2DEventSource {
      * @return An observable emitting "Begin Contact" events.
      */
     public static Observable<BeginContactEvent> beginContact(Observable<? extends ContactEvent> source) {
-        return filtered(source, BeginContactEvent.class);
+        return source.ofType(BeginContactEvent.class);
     }
 
     /**
@@ -111,7 +110,7 @@ public enum GdxBox2DEventSource {
      * @return An observable emitting "End Contact" events.
      */
     public static Observable<EndContactEvent> endContact(Observable<? extends ContactEvent> source) {
-        return filtered(source, EndContactEvent.class);
+        return source.ofType(EndContactEvent.class);
     }
 
     /**
@@ -121,7 +120,7 @@ public enum GdxBox2DEventSource {
      * @return An observable emitting "PreSolve" events.
      */
     public static Observable<PreSolveContactEvent> preSolve(Observable<? extends ContactEvent> source) {
-        return filtered(source, PreSolveContactEvent.class);
+        return source.ofType(PreSolveContactEvent.class);
     }
 
     /**
@@ -131,7 +130,7 @@ public enum GdxBox2DEventSource {
      * @return An observable emitting "PostSolve" events.
      */
     public static Observable<PostSolveContactEvent> postSolve(Observable<? extends ContactEvent> source) {
-        return filtered(source, PostSolveContactEvent.class);
+        return source.ofType(PostSolveContactEvent.class);
     }
 
 }
